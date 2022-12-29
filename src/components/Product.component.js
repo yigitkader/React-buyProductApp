@@ -33,23 +33,19 @@ export default function Product({product,basket,setBasket,total,money}){
     }
 
     return (
-        <div className="product">
-            <h6>{product.name}</h6>
-            <h6>$ {product.price}</h6>
-            <div className="product-details">
-                <button disabled = {(total + product.price ) > money} onClick={addToBasket}>Add to Basket</button>
-                <span className="amount"> {(productsOnBasket && productsOnBasket.amount) ? productsOnBasket.amount : 0} </span>
-                <button disabled = {!productsOnBasket || productsOnBasket.amount<1} onClick={removeFromBasket} >Remove from Basket</button>
+        <div className="container product">
+            <div className= "">
+                <img src={product.image_url} alt='' />
+                <h6>{product.name}</h6>
+                <div>
+                    <h6>$ {product.price}</h6>
+                </div> 
+                <div className="product-details">
+                    <button disabled = {(total + product.price ) > money} onClick={addToBasket}>Add</button>
+                    <span className="amount"> {(productsOnBasket && productsOnBasket.amount) ? productsOnBasket.amount : 0} </span>
+                    <button disabled = {!productsOnBasket || productsOnBasket.amount<1} onClick={removeFromBasket} >Remove</button>
+                </div>    
             </div>
-            {/* <style jsx>{`
-            .product{
-                padding : 10px;
-                background : #fff;
-                border: 1px solid #ddd;
-                margin-bottom:15px;
-            }
-            `}
-            </style> */}
         </div>
     )
 }
